@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed%3Awght%40600%3B700&display=swap);
+
 html, body {
     padding: 0;
     margin: 0;
@@ -24,4 +26,5 @@ body {
     );
     background-size: cover;
     height: 100vh;
+    font-family: "Barlow Semi Condensed", sans-serif;
 }
