@@ -7,6 +7,7 @@ import { Play } from "./components/Play"
 function App() {
   const [advancedMode, setAdvancedMode] = useState(false);
   const [open, setOpen] = useState(false);
+  const [selected, setSelected] = useState(-1);
   function changeModes() {
     setAdvancedMode(!advancedMode);
   }
@@ -14,7 +15,7 @@ function App() {
   return (
     <>
       <Header advanced={advancedMode} score={0} />
-      <Play advanced={advancedMode} />
+      <Play selected={selected} setSelected={(value) => setSelected(value)} advanced={advancedMode} />
       <footer className="footer w-full flex justify-between py-1 px-5 bottom-3 fixed">
         <div
           onClick={changeModes}
