@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import { Header } from "./components/Header";
 import { Rules } from "./components/Rules"
+import { Play } from "./components/Play"
 
 function App() {
   const [advancedMode, setAdvancedMode] = useState(false);
@@ -13,6 +14,7 @@ function App() {
   return (
     <>
       <Header advanced={advancedMode} score={0} />
+      <Play advanced={advancedMode} />
       <footer className="footer w-full flex justify-between py-1 px-5 bottom-3 fixed">
         <div
           onClick={changeModes}
