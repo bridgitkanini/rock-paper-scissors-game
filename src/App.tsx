@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import { Header } from "./components/Header";
 
 function App() {
   const [advancedMode, setAdvancedMode] = useState(false);
@@ -9,7 +10,7 @@ function App() {
 
   return (
     <>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+      <Header advanced={advancedMode} score={0} />
       <footer className="footer w-full flex justify-between py-1 px-5 bottom-3 fixed">
         <div onClick={changeModes} className="modes py-2 px-6 border border-white rounded-lg text-white uppercase">
           {advancedMode ? "Advanced" : "Normal"} Mode
