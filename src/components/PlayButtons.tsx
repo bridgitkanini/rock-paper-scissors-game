@@ -22,22 +22,22 @@ const PlayButtons: FunctionComponent<PlayButtonProps> = ({ advanced }) => {
             <Button className="rounded-[50%] w-[100px] h-[100px] relative bg-white !visible justify-self-end bg-gradient-to-r from-sky-500 to-indigo-500" lid="paper">
               <img src={paper} alt="paper" />
             </Button>
-            <Button className="rounded-[50%] w-[100px] h-[100px] relative bg-white !visible justify-self-center self-end bg-gradient-to-r from-yellow-500 to-orange-500" lid="scissors">
+            <Button className="rounded-[50%] w-[100px] h-[100px] relative bg-white !visible justify-self-start -mt-24 bg-gradient-to-r from-yellow-500 to-orange-500" lid="scissors">
               <img src={scissors} alt="scissors" />
             </Button>
-            <Button className="rounded-[50%] w-[100px] h-[100px] relative bg-white !visible justify-self-center bg-gradient-to-r from-purple-500 to-indigo-500" lid="lizard">
+            <Button className="rounded-[50%] w-[100px] h-[100px] relative bg-white !visible justify-self-end mr-10 bg-gradient-to-r from-purple-500 to-indigo-500" lid="lizard">
               <img src={lizard} alt="lizard" />
             </Button>
-            <Button className="rounded-[50%] w-[100px] h-[100px] relative bg-white !visible bg-gradient-to-r from-green-500 to-teal-500" lid="spock">
+            <Button className="rounded-[50%] w-[100px] h-[100px] relative bg-white !visible -mt-24 ml-10 bg-gradient-to-r from-green-500 to-teal-500" lid="spock">
               <img src={spock} alt="spock" />
             </Button>
           </div>
         ) : (
           <div className="h-[360px] w-[380px] grid grid-rows-2">
-            <Button className="rounded-[50%] w-[100px] h-[100px] relative bg-white !visible justify-self-center bg-gradient-to-r from-purple-500 to-pink-500" lid="rock">
+            <Button className="rounded-[50%] w-[100px] h-[100px] relative bg-white !visible justify-self-start bg-gradient-to-r from-purple-500 to-pink-500" lid="rock">
               <img src={rock} alt="rock" />
             </Button>
-            <Button className="rounded-[50%] w-[100px] h-[100px] relative bg-white !visible justify-self-center bg-gradient-to-r from-sky-500 to-indigo-500" lid="paper">
+            <Button className="rounded-[50%] w-[100px] h-[100px] relative bg-white !visible justify-self-end -mt-32 bg-gradient-to-r from-sky-500 to-indigo-500" lid="paper">
               <img src={paper} alt="paper" />
             </Button>
             <Button className="rounded-[50%] w-[100px] h-[100px] relative bg-white !visible justify-self-center self-end bg-gradient-to-r from-yellow-500 to-orange-500" lid="scissors">
