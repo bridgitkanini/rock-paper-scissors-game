@@ -4,8 +4,6 @@ import { Header } from "./components/Header";
 import { Play } from "./components/Play";
 import { Rules } from "./components/Rules";
 import { Results } from "./components/Results";
-import { GameRules } from "./shared/rules.ts";
-import { randomInt } from "./shared/randomInt.ts";
 
 function App() {
   const [advancedMode, setAdvancedMode] = useState(false);
@@ -18,7 +16,7 @@ function App() {
 
   return (
     <>
-      <Header advanced={advancedMode} score={0} />
+      <Header advanced={advancedMode} score={score} />
       <footer className="footer w-full flex justify-between py-1 px-5 bottom-3 fixed">
         <div
           onClick={changeMode}
@@ -38,12 +36,12 @@ function App() {
         <Results
           advanced={advancedMode}
           selected={selected}
-          setselected={(value) => setSelected(value)}
+          setselected={(value: number) => setSelected(value)}
           setscore = {setScore}
         />
       ) : (
         <Play
-          setselected={(value) => setSelected(value)}
+          setselected={(value: number) => setSelected(value)}
           advanced={advancedMode}
         />
       )}

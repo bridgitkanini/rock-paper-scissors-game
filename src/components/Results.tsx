@@ -3,13 +3,12 @@ import { FunctionComponent, useState, useEffect } from "react";
 import { GameRules } from "./../shared/rules.ts";
 import { randomInt } from "./../shared/randomInt.ts";
 import Button from "./Button.tsx";
-import spock from "./../../rock-paper-scissors-master/images/icon-spock.svg";
 
 type ResultsProps = {
   selected: number;
   advanced: boolean;
   setselected: any;
-  setscore: any;
+  setscore: (callback: (score: number) => number) => void;
 };
 
 export const Results: FunctionComponent<ResultsProps> = ({
@@ -19,21 +18,21 @@ export const Results: FunctionComponent<ResultsProps> = ({
   advanced,
 }) => {
   const [result, setResult] = useState("");
+  const [house, setHouse] = useState("");
   const [show, setShow] = useState(false);
   useEffect(() => {
     const randomNum = randomInt(advanced ? 5 : 3);
     const userSelected = GameRules[selected].value;
 
-    console.log(userSelected, GameRules[randomNum].value);
     setTimeout(() => {
       setShow(true);
-
+      setHouse(GameRules[randomNum].value);
       if (GameRules[randomNum].beats.includes(userSelected)) {
         setResult("Lose");
         setscore((score) => score - 1);
       } else {
         if (GameRules[randomNum].value === userSelected) {
-          setResult("Draw");
+          setResult("Tie");
         } else {
           setResult("Win");
           setscore((score) => score + 1);
@@ -53,7 +52,11 @@ export const Results: FunctionComponent<ResultsProps> = ({
       <div className="flex flex-col-reverse justify-evenly my-0 mx-4 items-center h-full p-1 ">
         <h3 className="p-3 mt-4">You Picked</h3>
         <motion.div
-          className={result === "Win" ? "relative rounded-[50%] scale-[9] duration-500 " : "rounded-[50%] bg-slate-900 w-[100px] h-[100px] "}
+          className={
+            result === "Win"
+              ? "relative rounded-[50%] scale-[9] duration-500 "
+              : "rounded-[50%] bg-slate-900 w-[100px] h-[100px] "
+          }
           initial={{ y: 20 }}
           animate={{ y: 0, transition: { loop: 3 } }}
         >
@@ -69,10 +72,15 @@ export const Results: FunctionComponent<ResultsProps> = ({
           </Button>
         </motion.div>
       </div>
+
       <div>
         <h3>House Picked</h3>
         <motion.div
-          className={result === "Lose" ? "win" : "rounded-[50%] bg-slate-900 w-[100px] h-[100px] "}
+          className={
+            result === "Lose"
+              ? "relative rounded-[50%] scale-[9] duration-500 "
+              : "rounded-[50%] bg-slate-900 w-[100px] h-[100px] "
+          }
           initial={{ y: 20 }}
           animate={{ y: 0, transition: { loop: 3 } }}
         >

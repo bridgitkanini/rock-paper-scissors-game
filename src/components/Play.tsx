@@ -26,7 +26,7 @@ export const Play: FunctionComponent<RulesProps> = ({
     >
       {advanced ? <img src={bgpentagon} /> : <img src={bgtriangle} />}
       <PlayButtons
-        onClick={(value) => setselected(value)}
+        onClick={(value: number) => setselected(value)}
         advanced={advanced}
       />
     </motion.div>

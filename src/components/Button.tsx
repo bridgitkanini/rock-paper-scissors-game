@@ -5,6 +5,7 @@ type ButtonProps = {
   className: string;
   lid?: string;
   children?: React.ReactNode;
+  onClick?: () => void;
 };
 
 const Button: FunctionComponent<ButtonProps> = ({ className, children, lid }) => {
