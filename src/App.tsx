@@ -1,24 +1,27 @@
 import { useState } from "react";
 import "./App.css";
 import { Header } from "./components/Header";
-import { Rules } from "./components/Rules"
-// import { Play } from "./components/Play"
+import { Play } from "./components/Play";
+import { Rules } from "./components/Rules";
+import { Results } from "./components/Results";
+import { GameRules } from "./shared/rules.ts";
+import { randomInt } from "./shared/randomInt.ts";
 
 function App() {
   const [advancedMode, setAdvancedMode] = useState(false);
   const [open, setOpen] = useState(false);
-  // const [selected, setSelected] = useState(-1);
-  function changeModes() {
+  const [selected, setSelected] = useState(-1);
+  const [score, setScore] = useState(0);
+  function changeMode() {
     setAdvancedMode(!advancedMode);
   }
 
   return (
     <>
       <Header advanced={advancedMode} score={0} />
-      {/* <Play selected={selected} setSelected={(value) => setSelected(value)} advanced={advancedMode} /> */}
       <footer className="footer w-full flex justify-between py-1 px-5 bottom-3 fixed">
         <div
-          onClick={changeModes}
+          onClick={changeMode}
           className="modes py-2 px-6 border border-white rounded-lg text-white uppercase"
         >
           {advancedMode ? "Advanced" : "Normal"} Mode
@@ -30,6 +33,20 @@ function App() {
           Rules
         </div>
       </footer>
+
+      {selected >= 0 ? (
+        <Results
+          advanced={advancedMode}
+          selected={selected}
+          setselected={(value) => setSelected(value)}
+          setscore = {setScore}
+        />
+      ) : (
+        <Play
+          setselected={(value) => setSelected(value)}
+          advanced={advancedMode}
+        />
+      )}
       <Rules
         open={open}
         advanced={advancedMode}

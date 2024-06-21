@@ -6,24 +6,29 @@ import bgtriangle from "./../../rock-paper-scissors-master/images/bg-triangle.sv
 
 type RulesProps = {
   advanced: boolean;
-  setopen?: any;
-  open?: boolean;
+  setselected: any;
 };
 
-export const Play: FunctionComponent<RulesProps> = ({ advanced }) => {
+export const Play: FunctionComponent<RulesProps> = ({
+  advanced,
+  setselected,
+}) => {
   return (
     <motion.div
-      initial={{ rotate: 360 }}
-      animate={{ rotate: 0 }}
-      exit={{ rotate: 360 }}
+      initial={{ scale: 0, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      exit={{
+        scale: 0,
+        opacity: 0,
+        transition: { duration: 0.2 },
+      }}
       className="w-[100%] h-[60vh] grid place-items-center relative"
     >
-      {advanced ? (
-        <img src={bgpentagon}/>
-      ) : (
-        <img src={bgtriangle}/>
-      )}
-      <PlayButtons advanced={advanced} />
+      {advanced ? <img src={bgpentagon} /> : <img src={bgtriangle} />}
+      <PlayButtons
+        onClick={(value) => setselected(value)}
+        advanced={advanced}
+      />
     </motion.div>
   );
 };
