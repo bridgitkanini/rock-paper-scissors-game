@@ -22,7 +22,7 @@ export const Play: FunctionComponent<RulesProps> = ({
         opacity: 0,
         transition: { duration: 0.2 },
       }}
-      className="w-[100%] h-[60vh] grid place-items-center relative"
+      className="container w-[100%] h-[60vh] grid place-items-center relative"
     >
       {advanced ? <img src={bgpentagon} /> : <img src={bgtriangle} />}
       <PlayButtons

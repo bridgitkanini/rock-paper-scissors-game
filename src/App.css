@@ -27,4 +27,5 @@ body {
     background-size: cover;
     height: 100vh;
     font-family: "Barlow Semi Condensed", sans-serif;
+    overflow: hidden;
 }

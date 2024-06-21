@@ -16,7 +16,7 @@ const Button: FunctionComponent<ButtonProps> = ({
 }) => {
   return (
     <motion.div onClick={() => onClick()} layoutId={lid} className={className}>
-      <div className="top-[50%] left-[50%] translate-x-[12.5%] translate-y-[12.5%] w-[80%] h-[80%] bg-white rounded-[50%] grid place-items-center">
+      <div className="inside top-[50%] left-[50%] translate-x-[12.5%] translate-y-[12.5%] w-[80%] h-[80%] bg-white rounded-[50%] grid place-items-center shadow-slate-900">
         {children}
       </div>
     </motion.div>
