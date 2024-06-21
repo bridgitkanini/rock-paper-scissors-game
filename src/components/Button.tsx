@@ -8,10 +8,17 @@ type ButtonProps = {
   onClick?: () => void;
 };
 
-const Button: FunctionComponent<ButtonProps> = ({ className, children, lid }) => {
+const Button: FunctionComponent<ButtonProps> = ({
+  className,
+  children,
+  lid,
+  onClick = () => {},
+}) => {
   return (
-    <motion.div layoutId={lid} className={className}>
-        <div className="top-[50%] left-[50%] translate-x-[12.5%] translate-y-[12.5%] w-[80%] h-[80%] bg-white rounded-[50%] grid place-items-center">{children}</div>
+    <motion.div onClick={() => onClick()} layoutId={lid} className={className}>
+      <div className="top-[50%] left-[50%] translate-x-[12.5%] translate-y-[12.5%] w-[80%] h-[80%] bg-white rounded-[50%] grid place-items-center">
+        {children}
+      </div>
     </motion.div>
   );
 };
