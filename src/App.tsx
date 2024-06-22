@@ -36,7 +36,7 @@ function App() {
         <Results
           advanced={advancedMode}
           selected={selected}
-          setselected={(value: number) => setSelected(value)}
+          setselected={setSelected}
           setscore = {setScore}
         />
       ) : (
