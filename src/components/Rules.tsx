@@ -6,7 +6,7 @@ import rulesfornormal from "./../../rock-paper-scissors-master/images/image-rule
 
 type RulesProps = {
   advanced: boolean;
-  setopen?: any;
+  setopen?: (open: boolean) => void;
   open?: boolean;
 };
 
@@ -23,7 +23,7 @@ export const Rules: FunctionComponent<RulesProps> = ({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           className="rules absolute top-0 lg:top-[50%] left-0 lg:left-[50%] lg:translate-x-[-50%] lg:translate-y-[-50%] w-[100%] lg:w-[40%] h-[100%] lg:h-[65%] bg-white p-5 lg:p-8 max-h-[100%] lg:max-h-[650px] shadow-xl "
-          onClick={() => setopen()}
+          onClick={() => setopen?.(false)}
         >
           <div className="title flex justify-between items-center text-blue-900 uppercase">
             <h1>Rules</h1>
