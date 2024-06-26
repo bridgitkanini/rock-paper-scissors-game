@@ -1,9 +1,20 @@
 import { motion } from "framer-motion";
-import { FunctionComponent, useState, useEffect, Dispatch, SetStateAction } from "react";
+import {
+  FunctionComponent,
+  useState,
+  useEffect,
+  Dispatch,
+  SetStateAction,
+} from "react";
 import { GameRules } from "./../shared/rules.ts";
 import { randomInt } from "./../shared/randomInt.ts";
 import Button from "./Button.tsx";
-import './Results.css';
+import "./Results.css";
+import rock from "./../assets/rock-paper-scissors-master/images/icon-rock.svg";
+import paper from "./../assets/rock-paper-scissors-master/images/icon-paper.svg";
+import scissors from "./../assets/rock-paper-scissors-master/images/icon-scissors.svg";
+import lizard from "./../assets/rock-paper-scissors-master/images/icon-lizard.svg";
+import spock from "./../assets/rock-paper-scissors-master/images/icon-spock.svg";
 
 type ResultsProps = {
   selected: number;
@@ -42,14 +53,27 @@ export const Results: FunctionComponent<ResultsProps> = ({
     }, 2000);
   }, [advanced, selected, setscore]);
 
+  const buttonBaseClass =
+    "rounded-[50%] w-[100px] h-[100px] relative bg-white !visible";
+
+  const gradients = {
+    rock: "bg-gradient-to-r from-purple-500 to-pink-500",
+    paper: "bg-gradient-to-r from-sky-500 to-indigo-500",
+    scissors: "bg-gradient-to-r from-yellow-500 to-orange-500",
+    lizard: "bg-gradient-to-r from-purple-500 to-indigo-500",
+    spock: "bg-gradient-to-r from-green-500 to-teal-500",
+  };
+
+  const buttonSpecificClasses = {
+    rock: "justify-self-center",
+    paper: "justify-self-end",
+    scissors: "justify-self-start -mt-24",
+    lizard: "justify-self-end mr-10",
+    spock: "-mt-24 ml-10",
+  };
+
   return (
-    <div
-      className={
-        show
-          ? "results"
-          : "pending"
-      }
-    >
+    <div className={show ? "results" : "pending"}>
       <div className="pick flex flex-col-reverse justify-evenly my-0 mx-4 items-center h-full p-1 ">
         <h3 className="p-3 mt-4">You Picked</h3>
         <motion.div
@@ -62,14 +86,21 @@ export const Results: FunctionComponent<ResultsProps> = ({
           animate={{ y: 0, transition: { loop: 3 } }}
         >
           <Button
-            className={`${[
-              GameRules[selected].value,
-            ]} ${"Btn top-[50%] left-[50%] translate-x-[12.5%] translate-y-[12.5%] w-[80%] h-[80%] bg-white rounded-[50%] grid place-items-center"}`}
+            className={`${[GameRules[selected].value]}  ${buttonBaseClass} ${
+              gradients[GameRules[selected].value]
+            } ${buttonSpecificClasses[house]} `}
           >
-            <img
-              src={`./../../rock-paper-scissors-master/images/icon-${GameRules[selected].value}.svg`}
-              alt=""
-            />
+            {GameRules[selected].value === "rock" ? (
+              <img src={rock} alt="" />
+            ) : GameRules[selected].value === "paper" ? (
+              <img src={paper} alt="" />
+            ) : GameRules[selected].value === "scissors" ? (
+              <img src={scissors} alt="" />
+            ) : GameRules[selected].value === "lizard" ? (
+              <img src={lizard} alt="" />
+            ) : GameRules[selected].value === "spock" ? (
+              <img src={spock} alt="" />
+            ) : null}
           </Button>
         </motion.div>
       </div>
@@ -80,21 +111,28 @@ export const Results: FunctionComponent<ResultsProps> = ({
           className={
             result === "Lose"
               ? "win relative rounded-[50%] scale-[9] duration-500 "
-              : "house relative rounded-[50%] bg-slate-900 w-[100px] h-[100px] "
+              : "house rounded-[50%]  w-[100px] h-[100px] "
           }
           initial={{ y: 20 }}
           animate={{ y: 0, transition: { loop: 3 } }}
         >
           {house && (
             <Button
-              className={`${[
-                house,
-              ]} ${"btn top-[50%] left-[50%] translate-x-[12.5%] translate-y-[12.5%] w-[80%] h-[80%] bg-white rounded-[50%] grid place-items-center"}`}
+              className={`${[house]}  ${buttonBaseClass} ${gradients[house]} ${
+                buttonSpecificClasses[house]
+              }`}
             >
-              <img
-                src={`./../../rock-paper-scissors-master/images/icon-${house}.svg`}
-                alt=""
-              />
+              {house === "rock" ? (
+                <img src={rock} alt="" />
+              ) : house === "paper" ? (
+                <img src={paper} alt="" />
+              ) : house === "scissors" ? (
+                <img src={scissors} alt="" />
+              ) : house === "lizard" ? (
+                <img src={lizard} alt="" />
+              ) : house === "spock" ? (
+                <img src={spock} alt="" />
+              ) : null}
             </Button>
           )}
         </motion.div>
