@@ -1,11 +1,11 @@
 import { LayoutGroup, motion } from "framer-motion";
 import { FunctionComponent } from "react";
 import Button from "./Button";
-import rock from "./../../rock-paper-scissors-master/images/icon-rock.svg";
-import paper from "./../../rock-paper-scissors-master/images/icon-paper.svg";
-import scissors from "./../../rock-paper-scissors-master/images/icon-scissors.svg";
-import lizard from "./../../rock-paper-scissors-master/images/icon-lizard.svg";
-import spock from "./../../rock-paper-scissors-master/images/icon-spock.svg";
+import rock from "../assets/rock-paper-scissors-master/images/icon-rock.svg";
+import paper from "../assets/rock-paper-scissors-master/images/icon-rock.svg";
+import scissors from "../assets/rock-paper-scissors-master/images/icon-rock.svg";
+import lizard from "../assets/rock-paper-scissors-master/images/icon-rock.svg";
+import spock from "../assets/rock-paper-scissors-master/images/icon-rock.svg";
 
 type PlayButtonProps = {
   advanced: boolean;

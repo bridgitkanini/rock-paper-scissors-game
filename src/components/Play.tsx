@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
 import { FunctionComponent } from "react";
 import PlayButtons from "./PlayButtons";
-import bgpentagon from "./../../rock-paper-scissors-master/images/bg-pentagon.svg";
-import bgtriangle from "./../../rock-paper-scissors-master/images/bg-triangle.svg";
+import bgtriangle from "./../assets/rock-paper-scissors-master/images/bg-triangle.svg";
+import bgpentagon from "./../assets/rock-paper-scissors-master/images/bg-pentagon.svg";
+
 
 type RulesProps = {
   advanced: boolean;

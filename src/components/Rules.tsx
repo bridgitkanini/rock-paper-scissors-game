@@ -1,8 +1,8 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { FunctionComponent } from "react";
-import iconclose from "./../../rock-paper-scissors-master/images/icon-close.svg";
-import rulesforadvanced from "./../../rock-paper-scissors-master/images/image-rules-bonus.svg";
-import rulesfornormal from "./../../rock-paper-scissors-master/images/image-rules.svg";
+// import iconclose from "./../../rock-paper-scissors-master/images/icon-close.svg";
+import rulesforadvanced from "../assets/rock-paper-scissors-master/images/image-rules-bonus.svg";
+import rulesfornormal from "../assets/rock-paper-scissors-master/images/image-rules-bonus.svg";
 
 type RulesProps = {
   advanced: boolean;
@@ -27,7 +27,7 @@ export const Rules: FunctionComponent<RulesProps> = ({
         >
           <div className="title flex justify-between items-center text-blue-900 uppercase">
             <h1>Rules</h1>
-            <img src={iconclose} alt="close" width="100" height="100" className="w-[6%] h-[6%] grid place-items-center " />
+            <img src="./../../rock-paper-scissors-master/images/icon-close.svg" alt="close" width="100" height="100" className="w-[6%] h-[6%] grid place-items-center " />
           </div>
           <div className="w-full h-full grid place-items-center">
             {advanced ? (
